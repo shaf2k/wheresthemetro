@@ -1,0 +1,29 @@
+div.container
+  div.row
+    div.col-md-12
+      header
+        ol.breadcrumb
+          li
+            a(href="/")=title
+          if rail != null
+            li
+              a(href="/rail") Rail
+
+        if rail == null
+          h1=subtitle
+        else
+          h1=mta_data.title
+      if rail == null
+        h4 Transit Lines:
+      else
+        h4 Stations
+      ul.station-list
+        if rail == null
+          each line in mta_data.lines
+            li
+              a(href="/rail/"+line.url)=line.title
+        else
+          each station in mta_data.stations
+            li
+              a(href="/rail/"+rail+"/"+station.url)=station.Name
+      include footer.jade

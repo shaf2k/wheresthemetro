@@ -1,0 +1,26 @@
+div.container
+  div.row
+    div.col-md-12
+      header
+        ol.breadcrumb
+          li
+            a(href="/")=title
+          li
+            a(href="/rail") Rail
+          li
+            a(href="/rail/"+rail)=subtitle
+        h1=mta_data.Name
+      div(id="predictions")
+        ul
+          each train in response.Trains
+            li.prediction
+              if train.DestinationName == "No Passenger"
+                h3.text-muted No Passenger
+              else
+                h3="To "+train.DestinationName
+              ul.directions
+                if Number(train.Min)
+                  li=train.Min+" min"
+                else
+                  li=train.Min
+      include footer.jade

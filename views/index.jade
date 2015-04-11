@@ -1,0 +1,12 @@
+div.container
+  div.row
+    div.col-md-12
+      h1=title
+      p "Where's the Metro?" makes use the the Washington Metropolitan Area Transit Authority API to predict arrival times to the Metro transit stations. It is by no means feature complete.
+      h4 Transit Systems:
+      ul.station-list
+        li
+          a(href="/rail") Rail
+        li
+          a(href="#") Bus (Coming Soon)
+      include footer.jade
